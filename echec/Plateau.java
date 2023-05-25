@@ -28,6 +28,56 @@ public class Plateau {
         }
     }
 
+    public Plateau(boolean cheat){
+        if (cheat == false) {
+            pieces.add(new Tour('B', new Position("A1")));
+            pieces.add(new Cavalier('B', new Position("B1")));
+            pieces.add(new Fou('B', new Position("C1")));
+            pieces.add(new Dame('B', new Position("D1")));
+            pieces.add(new Roi('B', new Position("E1")));
+            pieces.add(new Fou('B', new Position("F1")));
+            pieces.add(new Cavalier('B', new Position("G1")));
+            pieces.add(new Tour('B', new Position("H1")));
+            for (int i = 0; i < 8; i++) {
+                pieces.add(new PionBlanc(new Position((char) ('A' + i) + "2")));
+            }
+            pieces.add(new Tour('N', new Position("A8")));
+            pieces.add(new Cavalier('N', new Position("B8")));
+            pieces.add(new Fou('N', new Position("C8")));
+            pieces.add(new Dame('N', new Position("D8")));
+            pieces.add(new Roi('N', new Position("E8")));
+            pieces.add(new Fou('N', new Position("F8")));
+            pieces.add(new Cavalier('N', new Position("G8")));
+            pieces.add(new Tour('N', new Position("H8")));
+            for (int i = 0; i < 8; i++) {
+                pieces.add(new PionNoir(new Position((char) ('A' + i) + "7")));
+            }
+        } else {
+            pieces.add(new Tour('B', new Position("A1")));
+            pieces.add(new Cavalier('B', new Position("B1")));
+            pieces.add(new Fou('B', new Position("C1")));
+            pieces.add(new Dame('B', new Position("D1")));
+            pieces.add(new Roi('B', new Position("E1")));
+            pieces.add(new Fou('B', new Position("F1")));
+            pieces.add(new Cavalier('B', new Position("G1")));
+            pieces.add(new Tour('B', new Position("H1")));
+            for (int i = 0; i < 8; i++) {
+                pieces.add(new PionBlanc(new Position((char) ('A' + i) + "2")));
+            }
+            pieces.add(new Tour('N', new Position("A8")));
+            pieces.add(new Cavalier('N', new Position("B8")));
+            pieces.add(new Fou('N', new Position("C8")));
+            pieces.add(new Dame('N', new Position("D8")));
+            pieces.add(new Roi('N', new Position("E8")));
+            pieces.add(new Fou('N', new Position("F8")));
+            pieces.add(new Cavalier('N', new Position("G8")));
+            pieces.add(new Tour('N', new Position("H8")));
+            for (int i = 0; i < 8; i++) {
+                pieces.add(new PionNoir(new Position((char) ('A' + i) + "7")));
+            }
+        }
+    }
+
     public Piece getCase(int x, int y) {
         for (int i = 0; i < pieces.size(); i++) {
             if (pieces.get(i).getPosition().getX() == x && pieces.get(i).getPosition().getY() == y) {
