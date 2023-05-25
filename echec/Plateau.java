@@ -29,7 +29,6 @@ public class Plateau {
     }
 
     public Plateau(boolean cheat){
-        if (cheat == false) {
             pieces.add(new Tour('B', new Position("A1")));
             pieces.add(new Cavalier('B', new Position("B1")));
             pieces.add(new Fou('B', new Position("C1")));
@@ -38,9 +37,14 @@ public class Plateau {
             pieces.add(new Fou('B', new Position("F1")));
             pieces.add(new Cavalier('B', new Position("G1")));
             pieces.add(new Tour('B', new Position("H1")));
-            for (int i = 0; i < 8; i++) {
-                pieces.add(new PionBlanc(new Position((char) ('A' + i) + "2")));
-            }
+            pieces.add(new PionBlanc(new Position("A2")));
+            pieces.add(new PionBlanc(new Position("B2")));
+            pieces.add(new Tavalier('B', new Position("C2")));
+            pieces.add(new Favalier('B', new Position("D2")));
+            pieces.add(new Favalier('B', new Position("E2")));
+            pieces.add(new Tavalier('B', new Position("F2")));
+            pieces.add(new PionBlanc(new Position("G2")));
+            pieces.add(new PionBlanc(new Position("H2")));
             pieces.add(new Tour('N', new Position("A8")));
             pieces.add(new Cavalier('N', new Position("B8")));
             pieces.add(new Fou('N', new Position("C8")));
@@ -49,6 +53,7 @@ public class Plateau {
             pieces.add(new Fou('N', new Position("F8")));
             pieces.add(new Cavalier('N', new Position("G8")));
             pieces.add(new Tour('N', new Position("H8")));
+<<<<<<< Updated upstream
             for (int i = 0; i < 8; i++) {
                 pieces.add(new PionNoir(new Position((char) ('A' + i) + "7")));
             }
@@ -77,6 +82,8 @@ public class Plateau {
             pieces.add(new Fou('N', new Position("F8")));
             pieces.add(new Cavalier('N', new Position("G8")));
             pieces.add(new Tour('N', new Position("H8")));
+=======
+>>>>>>> Stashed changes
             pieces.add(new PionNoir(new Position("A7")));
             pieces.add(new PionNoir(new Position("B7")));
             pieces.add(new Tavalier('N', new Position("C7")));
@@ -85,7 +92,10 @@ public class Plateau {
             pieces.add(new Tavalier('N', new Position("F7")));
             pieces.add(new PionBlanc(new Position("G7")));
             pieces.add(new PionBlanc(new Position("H7")));
+<<<<<<< Updated upstream
         }
+=======
+>>>>>>> Stashed changes
     }
 
     public Piece getCase(int x, int y) {

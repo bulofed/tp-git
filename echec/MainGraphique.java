@@ -1,6 +1,9 @@
 import java.util.ArrayList;
 import MG2D.*;
 import MG2D.geometrie.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 
 public class MainGraphique {
     private static int TAILLE_PLATEAU = 600;
@@ -11,9 +14,17 @@ public class MainGraphique {
     public static ArrayList<Cercle> cercles = new ArrayList<Cercle>();
     public static char couleur = 'B';
 
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) throws InterruptedException, IOException {
+        Plateau p;
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        System.out.println("Cheat mode ? (y/n)");
+        String name = reader.readLine();
+        if (name.equals("y")) {
+            p = new Plateau(true);
+        } else {
+            p = new Plateau();
+        }
         Fenetre f = new Fenetre("Echec", TAILLE_PLATEAU, TAILLE_PLATEAU);
-        Plateau p = new Plateau();
         Souris s = f.getSouris();
         
         rafraichir(f, p);
