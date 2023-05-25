@@ -1,0 +1,110 @@
+import java.util.ArrayList;
+
+public class Davalier extends Piece {
+    public Davalier(char couleur, Position position) {
+        super("Davalier", couleur, position);
+    }
+
+    public Davalier() {
+        super("Davalier", 'B', new Position("A1"));
+    }
+
+    public String getType() {
+        return "Davalier";
+    }
+
+    public ArrayList<Position> getDeplacementsPossible(Plateau plateau) {
+        ArrayList<Position> deplacements = new ArrayList<Position>();
+        int x = this.getPosition().getX();
+        int y = this.getPosition().getY();
+        if (x + 2 < 8 && y + 1 < 8 && (plateau.getCase(x + 2, y + 1) == null || plateau.getCase(x + 2, y + 1).getCouleur() != this.getCouleur())) {
+            deplacements.add(new Position(x + 2, y + 1));
+        }
+        if (x + 2 < 8 && y - 1 >= 0 && (plateau.getCase(x + 2, y - 1) == null || plateau.getCase(x + 2, y - 1).getCouleur() != this.getCouleur())) {
+            deplacements.add(new Position(x + 2, y - 1));
+        }
+        if (x - 2 >= 0 && y + 1 < 8 && (plateau.getCase(x - 2, y + 1) == null || plateau.getCase(x - 2, y + 1).getCouleur() != this.getCouleur())) {
+            deplacements.add(new Position(x - 2, y + 1));
+        }
+        if (x - 2 >= 0 && y - 1 >= 0 && (plateau.getCase(x - 2, y - 1) == null || plateau.getCase(x - 2, y - 1).getCouleur() != this.getCouleur())) {
+            deplacements.add(new Position(x - 2, y - 1));
+        }
+        if (x + 1 < 8 && y + 2 < 8 && (plateau.getCase(x + 1, y + 2) == null || plateau.getCase(x + 1, y + 2).getCouleur() != this.getCouleur())) {
+            deplacements.add(new Position(x + 1, y + 2));
+        }
+        if (x + 1 < 8 && y - 2 >= 0 && (plateau.getCase(x + 1, y - 2) == null || plateau.getCase(x + 1, y - 2).getCouleur() != this.getCouleur())) {
+            deplacements.add(new Position(x + 1, y - 2));
+        }
+        if (x - 1 >= 0 && y + 2 < 8 && (plateau.getCase(x - 1, y + 2) == null || plateau.getCase(x - 1, y + 2).getCouleur() != this.getCouleur())) {
+            deplacements.add(new Position(x - 1, y + 2));
+        }
+        if (x - 1 >= 0 && y - 2 >= 0 && (plateau.getCase(x - 1, y - 2) == null || plateau.getCase(x - 1, y - 2).getCouleur() != this.getCouleur())) {
+            deplacements.add(new Position(x - 1, y - 2));
+        }
+        int i = 1;
+        while (x + i < 8 && plateau.getCase(x + i, y) == null) {
+            deplacements.add(new Position(x + i, y));
+            i++;
+        }
+        if (x + i < 8 && plateau.getCase(x + i, y).getCouleur() != this.getCouleur()) {
+            deplacements.add(new Position(x + i, y));
+        }
+        i = 1;
+        while (x - i >= 0 && plateau.getCase(x - i, y) == null) {
+            deplacements.add(new Position(x - i, y));
+            i++;
+        }
+        if (x - i >= 0 && plateau.getCase(x - i, y).getCouleur() != this.getCouleur()) {
+            deplacements.add(new Position(x - i, y));
+        }
+        i = 1;
+        while (y + i < 8 && plateau.getCase(x, y + i) == null) {
+            deplacements.add(new Position(x, y + i));
+            i++;
+        }
+        if (y + i < 8 && plateau.getCase(x, y + i).getCouleur() != this.getCouleur()) {
+            deplacements.add(new Position(x, y + i));
+        }
+        i = 1;
+        while (y - i >= 0 && plateau.getCase(x, y - i) == null) {
+            deplacements.add(new Position(x, y - i));
+            i++;
+        }
+        if (y - i >= 0 && plateau.getCase(x, y - i).getCouleur() != this.getCouleur()) {
+            deplacements.add(new Position(x, y - i));
+        }
+        for (i = 1; i < 8; i++) {
+            if (x + i < 8 && y + i < 8 && (plateau.getCase(x + i, y + i) == null || plateau.getCase(x + i, y + i).getCouleur() != this.getCouleur())) {
+                deplacements.add(new Position(x + i, y + i));
+            }
+            else {
+                break;
+            }
+        }
+        for (i = 1; i < 8; i++) {
+            if (x - i >= 0 && y - i >= 0 && (plateau.getCase(x - i, y - i) == null || plateau.getCase(x - i, y - i).getCouleur() != this.getCouleur())) {
+                deplacements.add(new Position(x - i, y - i));
+            }
+            else {
+                break;
+            }
+        }
+        for (i = 1; i < 8; i++) {
+            if (x + i < 8 && y - i >= 0 && (plateau.getCase(x + i, y - i) == null || plateau.getCase(x + i, y - i).getCouleur() != this.getCouleur())) {
+                deplacements.add(new Position(x + i, y - i));
+            }
+            else {
+                break;
+            }
+        }
+        for (i = 1; i < 8; i++) {
+            if (x - i >= 0 && y + i < 8 && (plateau.getCase(x - i, y + i) == null || plateau.getCase(x - i, y + i).getCouleur() != this.getCouleur())) {
+                deplacements.add(new Position(x - i, y + i));
+            }
+            else {
+                break;
+            }
+        }
+        return deplacements;
+    }
+}
